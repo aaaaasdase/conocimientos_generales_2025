@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web de conocimientos generales</title>
+  <!-- Logo / favicon (reemplaza el href por tu imagen real) -->
+  <link rel="icon" href="https://via.placeholder.com/64x64.png?text=Logo" />
+  <style>
+    :root{
+      --bg: #f8f4ef; /* pastel beige */
+      --card: #fffaf6; /* carta */
+      --muted: #7a6f6a;
+      --accent: #c7d8c7; /* verde pastel */
+      --accent-2: #f6d6d6; /* rosa pastel */
+      --accent-3: #dbe7f2; /* azul pastel */
+      --radius: 12px;
+      --gap: 18px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#333;
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:20px;
+    }
+    header{display:flex;align-items:center;gap:18px;margin-bottom:20px}
+    header img{width:64px;height:64px;border-radius:10px;object-fit:cover}
+    header h1{margin:0;font-size:20px}
+    nav{background:rgba(255,255,255,0.6);border-radius:14px;padding:10px}
+    .nav-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+    .nav-list a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
+    .nav-list a:hover{background:var(--accent);color:#2f3a2f}
+
+    main{margin-top:18px}
+    /* INICIO */
+    .hero{position:relative;border-radius:14px;overflow:hidden;min-height:240px;background:linear-gradient(180deg,rgba(255,255,255,0.2),rgba(255,255,255,0.0));box-shadow:0 6px 18px rgba(20,20,20,0.05)}
+    .hero img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(0.95) saturate(0.95);}
+    .hero .welcome{position:absolute;left:20px;bottom:20px;background:rgba(255,255,255,0.82);backdrop-filter:blur(4px);padding:16px;border-radius:10px;max-width:720px}
+    .welcome h2{margin:0 0 8px 0}
+    .welcome p{margin:0;color:var(--muted)}
+
+    /* Secciones */
+    section{margin-top:24px}
+    section h2{margin:0 0 10px 0}
+
+    /* MATERIAS: grid 3x3 */
+    .grid-3x3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+    .card{background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:0 6px 14px rgba(30,30,30,0.04);display:flex;flex-direction:column;gap:10px}
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    .card h3{margin:0;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .btn{margin-top:auto;align-self:flex-start;padding:8px 12px;border-radius:10px;border:none;background:var(--accent-3);cursor:pointer;text-decoration:none;color:#17324a;font-weight:700}
+
+    /* TEMAS: lista vertical con cards extensas */
+    .tema-card{background:linear-gradient(180deg,rgba(255,255,255,0.9),#fff);padding:16px;border-radius:12px;margin-bottom:12px}
+    .tema-card h3{margin:0 0 6px 0}
+    .tema-card p{margin:0;color:var(--muted);text-align:justify}
+
+    /* TUTORIALES: 3x3 videos */
+    .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+    .video-card iframe{width:100%;height:180px;border-radius:10px;border:0}
+
+    footer{margin-top:30px;padding:18px;border-radius:12px;background:rgba(255,255,255,0.6);text-align:center;color:var(--muted)}
+
+    /* Responsividad */
+    @media (max-width:1000px){.grid-3x3,.video-grid{grid-template-columns:repeat(2,1fr)}.hero{min-height:200px}.card img{height:120px}}
+    @media (max-width:640px){.grid-3x3,.video-grid{grid-template-columns:1fr}header{flex-direction:row;gap:12px}header h1{font-size:16px}.hero .welcome{left:12px;right:12px}}
+  </style>
+</head>
+<body>
+  <header>
+    <img src=imagenes/logo.png alt="logo.png" />
+    <div>
+      <h1>Web de conocimientos generales</h1>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#inicio">INICIO</a></li>
+          <li><a href="#materias">MATERIAS</a></li>
+          <li><a href="#temas">TEMAS</a></li>
+          <li><a href="#tutoriales">TUTORIALES</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- INICIO -->
+    <section id="inicio" class="hero" aria-label="inicio">
+      <img src=imagenes/bienvenidos.jpg  alt="imagen de bienvenida" />
+      <div class="welcome">
+        <h2>Bienvenido a la Web de conocimientos generales</h2>
+        <p>Este sitio está pensado para estudiantes de secundaria que desean explorar temas clave de distintas materias: Matemáticas, Música, Física, Química, Literatura, Biología, Ciencias Sociales, Inglés y Religión. Aquí encontrarás explicaciones claras, temas profundos y recursos multimedia para apoyar tu aprendizaje.</p>
+      </div>
+    </section>
+
+    <!-- MATERIAS -->
+    <section id="materias">
+      <h2>MATERIAS</h2>
+      <div class="grid-3x3">
+        <!-- 9 tarjetas: imagen, título, párrafo y botón -->
+
+        <article class="card" aria-labelledby="m-matematicas">
+          <img src=imagenes/1.jpg alt="Matemáticas" />
+          <h3 id="m-matematicas">MATEMÁTICAS</h3>
+          <p>Ramas y aplicaciones: álgebra, geometría, estadística y cálculo. Herramientas esenciales para resolver problemas y modelar situaciones reales.</p>
+          <a class="btn" href="#temas">Ver temas</a>
+        </article>
+
+        <article class="card" aria-labelledby="m-musica">
+          <img src=imagenes/2.jpg alt="Música" />
+          <h3 id="m-musica">MÚSICA</h3>
+          <p>Teoría y práctica: ritmo, melodía, armonía y apreciación musical. Aprende a leer partituras y entender estructuras musicales.</p>
+          <a class="btn" href="#temas">Ver temas</a>
+        </article>
+
+        <article class="card" aria-labelledby="m-fisica">
+          <img src=imagenes/3.jpg alt="Física" />
+          <h3 id="m-fisica">FÍSICA</h3>
+          <p>Principios que describen el universo: mecánica, termodinámica, electromagnetismo y física moderna aplicada.</p>
+          <a class="btn" href="#temas">Ver temas</a>
+        </article>
+
+        <article class="card" aria-labelledby="m-quimica">
+          <img src=imagenes/4.jpg alt="Química" />
+          <h3 id="m-quimica">QUÍMICA</h3>
+          <p>Estudia la materia y sus transformaciones: átomos, enlaces, reacciones y la importancia en la vida cotidiana.</p>
+          <a class="btn" href="#temas">Ver temas</a>
+        </article>
+
+        <article class="card" aria-labelledby="m-literatura">
+          <img src=imagenes/5.jpg alt="Literatura" />
+          <h3 id="m-literatura">LITERATURA</h3>
+          <p>Lectura, análisis y creación de textos: géneros literarios, recursos retóricos y la historia de la literatura.</p>
+          <a class="btn" href="#temas">Ver temas</a>
+        </article>
+
+        <article class="card" aria-labelledby="m-biologia">
+          <img src=imagenes/6.jpg alt="Biología" />
+          <h3 id="m-biologia">BIOLOGÍA</h3>
+          <p>Estudio de los seres vivos: desde la célula hasta los ecosistemas, y su relación con la salud y el ambiente.</p>
+          <a class="btn" href="#temas">Ver temas</a>
+        </article>
+
+        <article class="card" aria-labelledby="m-csociales">
+          <img src=imagenes/7.jpg alt="Ciencias Sociales" />
+          <h3 id="m-csociales">CIENCIAS SOCIALES</h3>
+          <p>Historia, geografía, economía y ciudadanía: análisis de sociedades, procesos históricos y participación ciudadana.</p>
+          <a class="btn" href="#temas">Ver temas</a>
+        </article>
+
+        <article class="card" aria-labelledby="m-ingles">
+          <img src=imagenes/8.jpg alt="Inglés" />
+          <h3 id="m-ingles">INGLÉS</h3>
+          <p>Gramática, vocabulario y habilidades comunicativas para comprender y producir textos orales y escritos en inglés.</p>
+          <a class="btn" href="#temas">Ver temas</a>
+        </article>
+
+        <article class="card" aria-labelledby="m-religion">
+          <img src=imagenes/9.jpg alt="Religión" />
+          <h3 id="m-religion">RELIGIÓN</h3>
+          <p>Reflexión sobre valores, tradiciones religiosas y su influencia en la ética y la convivencia diaria.</p>
+          <a class="btn" href="#temas">Ver temas</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- TEMAS -->
+    <section id="temas">
+      <h2>TEMAS </h2>
+
+      <article class="tema-card">
+        <h3>Matemáticas: ECUACIONES GEOMÉTRICAS</h3>
+        <p>Las ecuaciones geométricas son igualdades que relacionan magnitudes geométricas (longitudes, áreas, ángulos) mediante variables y parámetros. A nivel de secundaria conviene abordar: 1) representación algebraica de problemas geométricos (por ejemplo: hallar la ecuación de la recta que pasa por dos puntos), 2) uso del teorema de Pitágoras y semejanza para establecer relaciones entre lados y crear ecuaciones, 3) resolución de sistemas que aparecen al intersectar figuras (rectas, circunferencias), y 4) conexión con coordenadas y parámetros para describir transformaciones. Trabajar problemas con diagramas y ejercicios guiados ayuda a consolidar la comprensión y la interpretación geométrica de las soluciones.</p>
+        <a class="btn" href="#tutoriales">Ver tutorial</a>
+      </article>
+
+      <article class="tema-card">
+        <h3>Música: FIGURAS Y VALORES RÍTMICOS</h3>
+        <p>Las figuras rítmicas (redonda, blanca, negra, corchea, semicorchea) representan duraciones relativas en la música; conocer sus equivalencias y cómo se combinan en compases es esencial. Para secundaria se aborda: la subdivisión del pulso, acentos métricos, compases simples y compuestos, y la lectura rítmica mediante ejercicios con palmas y percusión corporal. También se trabajan patrones rítmicos (ostinatos) y su percepción en contextos musicales diversos (música popular, folclore, clásica). La relación caja-tempo y el uso de metrónomo fortalecen la precisión rítmica.</p>
+        <a class="btn" href="#tutoriales">Ver tutorial</a>
+      </article>
+
+      <article class="tema-card">
+        <h3>Física: LEY DE GRAVITACIÓN</h3>
+        <p>La ley de gravitación universal establece que dos masas se atraen con una fuerza directamente proporcional al producto de sus masas e inversamente proporcional al cuadrado de la distancia que las separa. A nivel secundario se debe entender: 1) la formulación F = G·(m1·m2)/r², 2) ejemplos numéricos sencillos (comparar la fuerza entre dos objetos pequeños y la fuerza entre la Tierra y un objeto), 3) cómo la gravedad explica órbitas y el peso versus masa, y 4) implicaciones prácticas (satélites, caída libre). Es recomendable resolver problemas y visualizar la dependencia con r para comprender la disminución rápida de la fuerza con la distancia.</p>
+        <a class="btn" href="#tutoriales">Ver tutorial</a>
+      </article>
+
+      <article class="tema-card">
+        <h3>Química: ENLACES QUÍMICOS</h3>
+        <p>Los enlaces químicos (iónico, covalente y metálico) explican cómo se forman las sustancias y determinan sus propiedades. A nivel secundario conviene estudiar: 1) la transferencia y compartición de electrones, 2) reglas simples de la estructura electrónica (octeto) y su aplicación en la predicción de fórmulas, 3) polaridad de enlaces y cómo afecta solubilidad y puntos de ebullición, y 4) modelos de enlace (diagramas de Lewis, estructuras de resonancia). Realizar prácticas de modelado y comparar propiedades macroscópicas ayuda a consolidar conceptos.</p>
+        <a class="btn" href="#tutoriales">Ver tutorial</a>
+      </article>
+
+      <article class="tema-card">
+        <h3>Literatura: TIPOS DE ACENTUACIÓN</h3>
+        <p>La acentuación en español clasifica palabras según la posición del acento: agudas (última sílaba), llanas o graves (penúltima) y esdrújulas (antepenúltima). Para secundaria se incorporan reglas de tilde (cuando llevan tilde) y excepciones (diptongos, hiatos, monosílabos con tilde diacrítica), así como ejercicios de identificación y análisis de cómo la acentuación afecta la entonación y el sentido. Explorar ejemplos en poesía y prosa permite ver cómo la acentuación influye en métrica y ritmo.</p>
+        <a class="btn" href="#tutoriales">Ver tutorial</a>
+      </article>
+
+      <article class="tema-card">
+        <h3>Biología: LA CÉLULA COMO UNIDAD FUNDAMENTAL DE LA VIDA</h3>
+        <p>La célula es la unidad básica estructural y funcional de los seres vivos. A nivel de secundaria conviene profundizar en: 1) diferencias entre células procariotas y eucariotas, 2) orgánulos y sus funciones (núcleo, mitocondrias, cloroplastos, retículo endoplásmico, aparato de Golgi, membrana), 3) la membrana celular y el transporte (ósmosis, difusión, transporte activo), y 4) procesos vitales como la respiración, fotosíntesis y división celular (mitosis). Actividades con microscopio y esquemas ayudan a consolidar la comprensión práctica y visual.</p>
+        <a class="btn" href="#tutoriales">Ver tutorial</a>
+      </article>
+
+      <article class="tema-card">
+        <h3>Ciencias Sociales: LA INDEPENDENCIA DE LATINOAMÉRICA</h3>
+        <p>La independencia latinoamericana fue un proceso complejo entre fines del siglo XVIII y comienzos del XIX, marcado por factores económicos, sociales y políticos: influencia de las ideas ilustradas, crisis de las monarquías europeas, desigualdades sociales, y conflictos internos. Para secundaria es importante estudiar líderes clave (como Simón Bolívar, José de San Martín), fechas relevantes, distintas trayectorias regionales (México, el Cono Sur, las colonias españolas), y las consecuencias: formación de estados, tensiones internas y cambios en la estructura social. Comparar causas y efectos ayuda a entender similitudes y diferencias entre procesos independientes en la región.</p>
+        <a class="btn" href="#tutoriales">Ver tutorial</a>
+      </article>
+
+      <article class="tema-card">
+        <h3>Inglés: LOS TIEMPOS VERBALES</h3>
+        <p>Los tiempos verbales en inglés permiten situar acciones en el tiempo: presente simple y continuo, pasado simple y continuo, presente perfecto, futuro simple y otras formas compuestas. A nivel secundario se debe practicar la formación (formas regulares e irregulares), usos (rutinas, acciones en progreso, experiencias pasadas) y contraste entre tiempos para expresar matices temporales. Ejercicios de escritura y conversación fortalecen la elección correcta del tiempo según contexto.</p>
+        <a class="btn" href="#tutoriales">Ver tutorial</a>
+      </article>
+
+      <article class="tema-card">
+        <h3>Religión: LOS MANDAMIENTOS Y SU SIGNIFICADO EN LA VIDA COTIDIANA</h3>
+        <p>Los mandamientos, en su versión tradicional judeocristiana, son preceptos que guían la conducta ética y social. Para secundaria conviene abordarlos desde una perspectiva contextual y reflexiva: su significado moral, cómo promueven la convivencia, ejemplos prácticos de aplicación (respeto, honestidad, cuidado del prójimo) y un diálogo sobre cómo valores similares aparecen en otras tradiciones. El objetivo es fomentar la reflexión ética más que la doctrina religiosa estricta.</p>
+        <a class="btn" href="#tutoriales">Ver tutorial</a>
+      </article>
+
+    </section>
+
+    <!-- TUTORIALES -->
+    <section id="tutoriales">
+      <h2>TUTORIALES (videos)</h2>
+      <div class="video-grid">
+        <!-- 9 videos: cada tarjeta con título, video y botón -->
+
+        <div class="card video-card">
+          <h3>Matemáticas - Ecuaciones geométricas</h3>
+          <video src="videos/matematicas.mp4" controls autoplay title="video matematicas" allowfullscreen width="300" height="200"></video>
+          <a class="btn" href="#">Abrir video</a>
+        </div>
+
+        <div class="card video-card">
+          <h3>Música - Figuras y valores rítmicos</h3>
+          <video src="videos/musica.mp4" controls autoplay title="video música" allowfullscreen width="300" height="200"></video>
+          <a class="btn" href="#">Abrir video</a>
+        </div>
+
+        <div class="card video-card">
+          <h3>Física - Ley de gravitación</h3>
+          <video src="videos/fisica.mp4" controls autoplay title="video fisica" allowfullscreen width="300" height="200" ></video>
+          <a class="btn" href="#">Abrir video</a>
+        </div>
+
+        <div class="card video-card">
+          <h3>Química - Enlaces químicos</h3>
+           <video src="videos/quimica.mp4" controls autoplay title="video quimica" allowfullscreen width="300" height="200"></video>
+          <a class="btn" href="#">Abrir video</a>
+        </div>
+
+        <div class="card video-card">
+          <h3>Literatura - Acentuación</h3>
+           <video src="videos/literatura.mp4" controls autoplay title="video literatura" allowfullscreen width="300" height="200"></video>
+          <a class="btn" href="#">Abrir video</a>
+        </div>
+
+        <div class="card video-card">
+          <h3>Biología - La célula</h3>
+           <video src="videos/biología.mp4" controls autoplay title="video biologia" allowfullscreen width="300" height="200"></video>
+          <a class="btn" href="#">Abrir video</a>
+        </div>
+
+        <div class="card video-card">
+          <h3>Ciencias Sociales - Independencia</h3>
+           <video src="videos/sociales.mp4" controls autoplay title="video ciencias sociales" allowfullscreen width="300" height="200"></video>
+          <a class="btn" href="#">Abrir video</a>
+        </div>
+
+        <div class="card video-card">
+          <h3>Inglés - Tiempos verbales</h3>
+           <video src="videos/ingles.mp4" controls autoplay title="video ingles" allowfullscreen width="300" height="200" ></video>
+          <a class="btn" href="#">Abrir video</a>
+        </div>
+
+        <div class="card video-card">
+          <h3>Religión - Mandamientos</h3>
+           <video src="videos/religion.mp4" controls autoplay title="video religion" allowfullscreen width="300" height="200"></video>
+          <a class="btn" href="#">Abrir video</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Web de conocimientos generales • Diseñado para estudiantes de secundaria
+  </footer>
+
+</body>
+</html>
